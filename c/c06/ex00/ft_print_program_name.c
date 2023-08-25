@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggalon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/12 16:41:10 by ggalon            #+#    #+#             */
-/*   Updated: 2023/08/18 22:42:02 by ggalon           ###   ########.fr       */
+/*   Created: 2023/08/19 23:59:53 by ggalon            #+#    #+#             */
+/*   Updated: 2023/08/20 00:07:07 by ggalon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,21 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_putstr_non_printable(char *str)
+void	ft_putstr(char *str)
 {
-	int				i;
-	unsigned char	hex;
-	char			*base;
+	int		i;
 
 	i = 0;
-	base = "0123456789abcdef";
 	while (str[i])
 	{
-		if (str[i] < 32 || str[i] == 127)
-		{
-			hex = str[i];
-			ft_putchar('\\');
-			write (1, base + (unsigned int)hex / 16, 1);
-			write (1, base + (unsigned int)hex % 16, 1);
-		}
-		else
-		{
-			ft_putchar(str[i]);
-		}
+		ft_putchar(str[i]);
 		i++;
 	}
+}
+
+int	main(int argc, char *argv[])
+{
+	if (argc)
+		ft_putstr(argv[0]);
+	ft_putchar(10);
 }

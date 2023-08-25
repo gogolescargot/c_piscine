@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*   ft_convert_base2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggalon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/16 22:27:37 by ggalon            #+#    #+#             */
-/*   Updated: 2023/08/16 22:27:39 by ggalon           ###   ########.fr       */
+/*   Created: 2023/08/21 16:35:47 by ggalon            #+#    #+#             */
+/*   Updated: 2023/08/22 21:01:06 by ggalon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+char	*ft_convert_base(char *nbr, char *base_from, char *base_to);
 
 int	ft_power(int i, int n)
 {
@@ -124,10 +126,3 @@ int	ft_atoi_base(char *str, char *base)
 	a[j] = 0;
 	return (ft_ctoint(a, base));
 }
-/*
-#include <stdio.h>
-int	main(int argc, char *argv[])
-{
-	printf("%d", ft_atoi_base(argv[1], argv[2]));
-}
-*/

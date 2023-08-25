@@ -6,7 +6,7 @@
 /*   By: ggalon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 18:46:58 by ggalon            #+#    #+#             */
-/*   Updated: 2023/08/16 02:59:48 by ggalon           ###   ########.fr       */
+/*   Updated: 2023/08/17 13:37:22 by ggalon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_atoi(char *str)
 #include <stdlib.h>
 int main (int argc, char *argv[])
 {
-    printf("%d\n", ft_atoi(argv[1]));
-	printf("%d\n", atoi(argv[1]));
+    printf("moi - >%d\n", ft_atoi(argv[1]));
+	printf("pas moi - >%d\n", atoi(argv[1]));
 }
 */

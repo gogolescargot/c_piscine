@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggalon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/12 16:41:10 by ggalon            #+#    #+#             */
-/*   Updated: 2023/08/18 22:42:02 by ggalon           ###   ########.fr       */
+/*   Created: 2023/08/21 10:24:08 by ggalon            #+#    #+#             */
+/*   Updated: 2023/08/22 23:42:51 by ggalon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putchar(char c)
+int	*ft_range(int min, int max)
 {
-	write(1, &c, 1);
-}
+	int				*tab;
+	unsigned long	i;
 
-void	ft_putstr_non_printable(char *str)
-{
-	int				i;
-	unsigned char	hex;
-	char			*base;
-
+	if (min >= max)
+		return (0);
+	tab = malloc(sizeof(int) * (max - min));
 	i = 0;
-	base = "0123456789abcdef";
-	while (str[i])
+	while (min < max)
 	{
-		if (str[i] < 32 || str[i] == 127)
-		{
-			hex = str[i];
-			ft_putchar('\\');
-			write (1, base + (unsigned int)hex / 16, 1);
-			write (1, base + (unsigned int)hex % 16, 1);
-		}
-		else
-		{
-			ft_putchar(str[i]);
-		}
+		tab[i] = min;
 		i++;
+		min++;
 	}
+	return (tab);
 }
+/*
+int	main(int argc, char **argv)
+{
+	ft_range(atoi(argv[1]), atoi(argv[2]));
+}
+*/
