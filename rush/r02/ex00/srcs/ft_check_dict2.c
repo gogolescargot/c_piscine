@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   check_dict2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggalon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/25 01:11:33 by ggalon            #+#    #+#             */
-/*   Updated: 2023/08/27 23:25:03 by ggalon           ###   ########.fr       */
+/*   Created: 2023/08/27 15:21:21 by ggalon            #+#    #+#             */
+/*   Updated: 2023/08/27 16:55:30 by ggalon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+int	ft_strlen(char *str);
 
-void	ft_putchar(char c);
-
-void	ft_putstr(char *str)
+int	ft_strstr(int size, char **str, char *to_find)
 {
-	int		i;
+	int	j;
+	int	k;
+	int	n;
 
-	i = 0;
-	while (str[i])
+	j = 0;
+	k = 0;
+	n = 0;
+	while (k < size)
 	{
-		ft_putchar(str[i]);
-		i++;
+		while (str[k][j] == to_find[j])
+		{
+			if (ft_strlen(str[k]) != ft_strlen(to_find))
+				break ;
+			j++;
+			if (j == ft_strlen(to_find))
+			{
+				n++;
+				break ;
+			}
+		}
+		k++;
+		j = 0;
 	}
+	return (n);
 }

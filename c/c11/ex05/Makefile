@@ -5,32 +5,31 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ggalon <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/28 12:54:33 by ggalon            #+#    #+#              #
-#    Updated: 2023/08/28 17:40:29 by ggalon           ###   ########.fr        #
+#    Created: 2023/08/28 16:20:53 by ggalon            #+#    #+#              #
+#    Updated: 2023/08/29 13:01:59 by ggalon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-LIBRARY = libft.a
-SOURCES = $(addprefix srcs/,ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c)
-OBJECTS := ${SOURCES:.c=.o} 
-INCLUDES = includes
+NAME = do-op
+SRCS = do-op1.c do-op2.c
+OBJS := ${SRCS:.c=.o}
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-all: $(LIBRARY)
+all: $(NAME)
 
-$(LIBRARY) : $(OBJECTS)
-	ar -rcs $@ $(OBJECTS)
+$(NAME) : $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJECTS)
+	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(LIBRARY)
+	rm -f $(NAME)
 
 re: fclean all
 

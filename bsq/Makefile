@@ -5,33 +5,34 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ggalon <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/28 12:54:33 by ggalon            #+#    #+#              #
-#    Updated: 2023/08/28 17:40:29 by ggalon           ###   ########.fr        #
+#    Created: 2023/08/28 21:40:46 by ggalon            #+#    #+#              #
+#    Updated: 2023/08/30 19:22:23 by ggalon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-LIBRARY = libft.a
-SOURCES = $(addprefix srcs/,ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c)
-OBJECTS := ${SOURCES:.c=.o} 
-INCLUDES = includes
+NAME = bsq
+SRCS = ft_check_map.c ft_lib.c ft_lib2.c ft_read_map.c ft_read_file.c ft_create_map.c ft_square_map.c ft_stdin.c main.c
+OBJS = ${SRCS:.c=.o}
+INCL = includes
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-all: $(LIBRARY)
+all: $(NAME)
 
-$(LIBRARY) : $(OBJECTS)
-	ar -rcs $@ $(OBJECTS)
+$(NAME) : $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -I $(INCL) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJECTS)
+	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(LIBRARY)
+	rm -f $(NAME)
 
 re: fclean all
 
 .PHONY: all clean fclean re
+

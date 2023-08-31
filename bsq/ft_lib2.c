@@ -1,27 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_lib2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggalon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/25 01:11:33 by ggalon            #+#    #+#             */
-/*   Updated: 2023/08/27 23:25:03 by ggalon           ###   ########.fr       */
+/*   Created: 2023/08/30 19:20:18 by ggalon            #+#    #+#             */
+/*   Updated: 2023/08/30 19:28:55 by ggalon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "includes/ft.h"
 
-void	ft_putchar(char c);
-
-void	ft_putstr(char *str)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int		i;
+	int				e;
+	unsigned int	i;
 
+	e = ft_strlen(dest);
 	i = 0;
-	while (str[i])
+	while (i < nb && src[i])
 	{
-		ft_putchar(str[i]);
+		dest[e + i] = src[i];
 		i++;
 	}
+	dest[e + i] = '\0';
+	return (dest);
+}
+
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
+{
+	unsigned int		i;
+
+	i = 0;
+	while (i < n && src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
 }
